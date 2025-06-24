@@ -4,6 +4,7 @@
 void ofApp::setup(){
 	ofBackground(0);
 	ofSetFrameRate(60);
+	ofSetWindowShape(1920,1080);
 	camera_.setDeviceID(2);
 	camera_.setup(1920, 1080);
 	if(sender_.setup("ofxNDISender example")) {
@@ -18,14 +19,14 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	camera_.update();
-	if(camera_.isFrameNew()) {
-		ofPixels pix = camera_.getPixels();
-		pix.setImageType(OF_IMAGE_COLOR_ALPHA);
-		if(genlock_.waitVideo()) {
-			video_.send(pix);
-		}
-	}
+	// camera_.update();
+	// if(camera_.isFrameNew()) {
+	// 	ofPixels pix = camera_.getPixels();
+	// 	pix.setImageType(OF_IMAGE_COLOR_ALPHA);
+	// 	if(genlock_.waitVideo()) {
+	// 		video_.send(pix);
+	// 	}
+	// }
 }
 
 //--------------------------------------------------------------
@@ -37,7 +38,7 @@ void ofApp::draw(){
 	else {
 		int gray = ofGetFrameNum()%256;
 		ofPushStyle();
-		ofSetColor(gray);
+		ofSetColor(gray, 0, 0);
 		ofDrawRectangle(ofGetCurrentViewport());
 		ofSetColor(255-gray,0,0);
 		ofDrawCircle(ofGetMouseX(), ofGetMouseY(), 30);

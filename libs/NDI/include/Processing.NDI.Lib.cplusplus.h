@@ -2,13 +2,13 @@
 
 // NOTE : The following MIT license applies to this file ONLY and not to the SDK as a whole. Please review
 // the SDK documentation for the description of the full license terms, which are also provided in the file
-// "NDI License Agreement.pdf" within the SDK or online at http://new.tk/ndisdk_license/. Your use of any
+// "NDI License Agreement.pdf" within the SDK or online at http://ndi.link/ndisdk_license. Your use of any
 // part of this SDK is acknowledgment that you agree to the SDK license terms. The full NDI SDK may be
-// downloaded at http://ndi.tv/
+// downloaded at http://ndi.video/
 //
 //***********************************************************************************************************
 //
-// Copyright (C)2014-2022, NewTek, inc.
+// Copyright (C) 2023-2025 Vizrt NDI AB. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files(the "Software"), to deal in the Software without restriction, including
@@ -113,6 +113,16 @@ inline NDIlib_audio_frame_interleaved_32s_t::NDIlib_audio_frame_interleaved_32s_
 
 inline NDIlib_audio_frame_interleaved_32f_t::NDIlib_audio_frame_interleaved_32f_t(int sample_rate_, int no_channels_, int no_samples_, int64_t timecode_, float* p_data_)
 	: sample_rate(sample_rate_), no_channels(no_channels_), no_samples(no_samples_), timecode(timecode_), p_data(p_data_) {}
+
+inline NDIlib_recv_advertiser_create_t::NDIlib_recv_advertiser_create_t(const char* p_url_address)
+	: p_url_address(p_url_address) {}
+
+inline NDIlib_recv_listener_create_t::NDIlib_recv_listener_create_t(const char* p_url_address)
+	: p_url_address(p_url_address) {}
+
+inline NDIlib_receiver_t::NDIlib_receiver_t(void)
+	: p_uuid(NULL), p_name(NULL), p_input_uuid(NULL), p_input_name(NULL), p_address(NULL),
+	  p_streams(NULL), num_streams(0), p_commands(NULL), num_commands(0), events_subscribed(false) {}
 
 #ifdef __clang__
 #pragma clang diagnostic pop

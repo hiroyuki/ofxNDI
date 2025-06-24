@@ -29,4 +29,5 @@ private:
 	ofVideoGrabber camera_;
 	
 	ofxNDIGenlock genlock_;
+	ofFbo fbo;
 };
